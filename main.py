@@ -45,6 +45,11 @@ class ExportBot:
             # with open ('index1.html', 'w') as w:
             #     w.write (self.driver.page_source)
             #     w.flush ( )
+            try:
+                self.driver.find_element_by_class_name ('js-continue').click ( )
+                logging.info (u'Page with js-continue method')
+            except:
+                logging.info (u'Page without js-continue method')
 
             for i in range (self.quantity_likes):
                 time.sleep (self.delay_between_likes)
