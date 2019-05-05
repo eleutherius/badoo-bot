@@ -1,6 +1,8 @@
+# encoding=utf8
 import configparser
 import logging
 import time
+import codecs
 
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -41,8 +43,10 @@ class ExportBot:
     def GetLikes (self):
         try:
             self.driver.get ('https://badoo.com/encounters')
+            import codecs
 
-            # with open ('index1.html', 'w') as w:
+
+            # with codecs.open ('login.html', 'w', "utf-8") as w:
             #     w.write (self.driver.page_source)
             #     w.flush ( )
             try:
@@ -54,9 +58,9 @@ class ExportBot:
             for i in range (self.quantity_likes):
                 time.sleep (self.delay_between_likes)
                 self.driver.find_element_by_class_name ('js-profile-header-vote-yes').click ( )
-                #html_name = 'index' + str (i) + '.html'
+                # html_name = 'index' + str (i) + '.html'
                 logging.info (u'Like user %s is success!' % (i))
-                # with open (html_name, 'w') as w:
+                # with codecs.open (html_name, 'w', "utf-8") as w:
                 #     w.write (self.driver.page_source)
                 #     w.flush ( )
 
