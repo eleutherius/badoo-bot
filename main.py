@@ -42,9 +42,9 @@ class ExportBot:
         try:
             self.driver.get ('https://badoo.com/encounters')
 
-            with open ('index1.html', 'w') as w:
-                w.write (self.driver.page_source)
-                w.flush ( )
+            # with open ('index1.html', 'w') as w:
+            #     w.write (self.driver.page_source)
+            #     w.flush ( )
 
             for i in range (self.quantity_likes):
                 time.sleep (self.delay_between_likes)
