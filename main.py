@@ -43,8 +43,6 @@ class ExportBot:
     def GetLikes (self):
         try:
             self.driver.get ('https://badoo.com/encounters')
-            import codecs
-
 
             # with codecs.open ('login.html', 'w', "utf-8") as w:
             #     w.write (self.driver.page_source)
@@ -65,7 +63,8 @@ class ExportBot:
                 #     w.flush ( )
 
         except :
-            logging.info (u'selenium.common.exceptions.ElementClickInterceptedException')
+            var = traceback.format_exc ( )
+            logging.info (var)
 
 
 our_bot = ExportBot()
