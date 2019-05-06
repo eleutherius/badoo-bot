@@ -74,7 +74,7 @@ def job():
     our_bot.GetLikes ( )
 
 
-schedule.every().day.at("9:12").do(job)
+schedule.every().day.at("09:12").do(job)
 schedule.every().day.at("12:20").do(job)
 schedule.every().day.at("14:38").do(job)
 schedule.every().day.at("16:12").do(job)
