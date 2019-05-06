@@ -4,6 +4,7 @@ import logging
 import time
 import codecs
 import traceback
+import schedule
 
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -67,10 +68,22 @@ class ExportBot:
             var = traceback.format_exc ( )
             logging.info (var)
 
+def job():
+    our_bot = ExportBot ( )
+    our_bot.GetLogin ( )
+    our_bot.GetLikes ( )
 
-our_bot = ExportBot()
-our_bot.GetLogin()
-our_bot.GetLikes()
 
+schedule.every().day.at("9:12").do(job)
+schedule.every().day.at("12:20").do(job)
+schedule.every().day.at("14:38").do(job)
+schedule.every().day.at("16:12").do(job)
+schedule.every().day.at("19:20").do(job)
+schedule.every().day.at("20:38").do(job)
+schedule.every().day.at("22:12").do(job)
+schedule.every().day.at("23:20").do(job)
+schedule.every().day.at("00:34").do(job)
 
-
+while 1:
+    schedule.run_pending()
+    time.sleep(1)
