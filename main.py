@@ -27,6 +27,7 @@ class ExportBot:
         options = Options ( )
         options.add_argument ('--headless')
         options.add_argument ('--no-sandbox')
+        options.add_argument('--disable-dev-shm-usage')
         # options.add_argument('--disable-gpu')  # applicable to windows os only
         self.driver = webdriver.Chrome (options=options, executable_path=r'/usr/bin/chromedriver')
         self.driver.get ('https://badoo.com/signin/')
