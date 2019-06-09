@@ -29,14 +29,14 @@ class ExportBot:
         options.add_argument ('--no-sandbox')
         # options.add_argument('--disable-gpu')  # applicable to windows os only
         self.driver = webdriver.Chrome (options=options, executable_path=r'/usr/bin/chromedriver')
-        self.driver.get ('https://badoo.com/signin/?f=top')
+        self.driver.get ('https://badoo.com/signin/')
         username = self.driver.find_element_by_class_name ('js-signin-login')
         username.send_keys (self.login)
 
         password = self.driver.find_element_by_class_name ('js-signin-password')
         password.send_keys (self.secret)
 
-        form = self.driver.find_element_by_class_name ('sign-form__submit')
+        form = self.driver.find_element_by_class_name ('btn--sm')
         form.submit ( )
 
         time.sleep (self.delay_between_likes)
@@ -74,7 +74,7 @@ def job():
     our_bot.GetLikes ( )
 
 
-schedule.every().day.at("09:12").do(job)
+schedule.every().day.at("12:32").do(job)
 schedule.every().day.at("12:20").do(job)
 schedule.every().day.at("14:38").do(job)
 schedule.every().day.at("16:12").do(job)
